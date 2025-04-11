@@ -1,0 +1,71 @@
+import json
+
+# Define the data
+cdetails_columns = [
+    { "column_name": "Call Activity ID", "data_type": "integer", "column_position": 1 },
+    { "column_name": "Agent Bank ID", "data_type": "integer", "column_position": 2 },
+    { "column_name": "Month", "data_type": "string", "column_position": 3 },
+    { "column_name": "Key", "data_type": "string", "column_position": 4 },
+    { "column_name": "CAP", "data_type": "string", "column_position": 5 },
+    { "column_name": "Agent Full Name", "data_type": "string", "column_position": 6 },
+    { "column_name": "Country", "data_type": "string", "column_position": 7 },
+    { "column_name": "Type", "data_type": "string", "column_position": 8 },
+    { "column_name": "Verification Status", "data_type": "string", "column_position": 9 },
+    { "column_name": "Call Status", "data_type": "string", "column_position": 10 },
+    { "column_name": "Call Queue Wait Time (CTI)", "data_type": "time", "column_position": 11 },
+    { "column_name": "Call Start Time", "data_type": "datetime", "column_position": 12 },
+    { "column_name": "Call Hang Up Time", "data_type": "datetime", "column_position": 13 },
+    { "column_name": "Call Completed Time", "data_type": "datetime", "column_position": 14 },
+    { "column_name": "Talk Time (Days)", "data_type": "float", "column_position": 15 },
+    { "column_name": "Talk Time", "data_type": "time", "column_position": 16 },
+    { "column_name": "Disposition Time (Days)", "data_type": "float", "column_position": 17 },
+    { "column_name": "Disposition Time", "data_type": "time", "column_position": 18 },
+    { "column_name": "AHT (Days)", "data_type": "float", "column_position": 19 },
+    { "column_name": "AHT", "data_type": "time", "column_position": 20 },
+    { "column_name": "Nature of Calls", "data_type": "string", "column_position": 21 },
+    { "column_name": "Notes", "data_type": "string", "column_position": 22 },
+    { "column_name": "General - Name", "data_type": "string", "column_position": 23 },
+    { "column_name": "General - Contact No.", "data_type": "integer", "column_position": 24 },
+    { "column_name": "Transferred Call", "data_type": "boolean", "column_position": 25 },
+    { "column_name": "Transferred By", "data_type": "string", "column_position": 26 },
+    { "column_name": "Language", "data_type": "string", "column_position": 27 },
+    { "column_name": "Last IVR Menu Code", "data_type": "string", "column_position": 28 },
+    { "column_name": "Last IVR Menu", "data_type": "string", "column_position": 29 },
+    { "column_name": "Agent ID (CTI)", "data_type": "integer", "column_position": 30 },
+    { "column_name": "Agent Ext (CTI)", "data_type": "string", "column_position": 31 },
+    { "column_name": "Caller Line ID (CTI)", "data_type": "integer", "column_position": 32 },
+    { "column_name": "Customer No (CTI)", "data_type": "integer", "column_position": 33 },
+    { "column_name": "Relationship No (CTI)", "data_type": "integer", "column_position": 34 },
+    { "column_name": "Account No (CTI)", "data_type": "integer", "column_position": 35 },
+    { "column_name": "Connection ID (CTI)", "data_type": "integer", "column_position": 36 },
+    { "column_name": "Authentication Code (CTI)", "data_type": "string", "column_position": 37 },
+    { "column_name": "Action (CTI)", "data_type": "string", "column_position": 38 },
+    { "column_name": "Phone Banking ID (CTI)", "data_type": "integer", "column_position": 39 },
+    { "column_name": "Reference No (CTI)", "data_type": "integer", "column_position": 40 },
+    { "column_name": "DNIS (CTI)", "data_type": "string", "column_position": 41 },
+    { "column_name": "Queue Name (CTI)", "data_type": "string", "column_position": 42 },
+    { "column_name": "Request Date (CTI)", "data_type": "datetime", "column_position": 43 },
+    { "column_name": "Location (CTI)", "data_type": "string", "column_position": 44 },
+    { "column_name": "Relationship No (Agent)", "data_type": "integer", "column_position": 45 },
+    { "column_name": "Account No (Agent)", "data_type": "integer", "column_position": 46 },
+    { "column_name": "Agent Manager", "data_type": "string", "column_position": 47 },
+    { "column_name": "Pitch Status", "data_type": "string", "column_position": 48 },
+    { "column_name": "Reason not Pitched", "data_type": "string", "column_position": 49 },
+    { "column_name": "Product Type", "data_type": "string", "column_position": 50 },
+    { "column_name": "Primary Call Type", "data_type": "string", "column_position": 51 },
+    { "column_name": "Secondary Call Type", "data_type": "string", "column_position": 52 },
+    { "column_name": "Customer Segment", "data_type": "string", "column_position": 53 },
+    { "column_name": "Account Status", "data_type": "string", "column_position": 54 },
+    { "column_name": "Registered Mobile No.", "data_type": "integer", "column_position": 55 },
+    { "column_name": "Map data", "data_type": "string", "column_position": 56 }
+]
+
+# Create JSON structure
+cdetails_json = { "CDetails": cdetails_columns }
+
+# Save to file
+output_path = "/mnt/data/CDetails_columns.json"
+with open(output_path, "w") as json_file:
+    json.dump(cdetails_json, json_file, indent=2)
+
+output_path
